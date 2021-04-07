@@ -1,18 +1,4 @@
-const projects = [
-  {
-  _creator: null,
-  name: 'Workout App',
-  description: 'An app to track and record your workouts',
-  image: '/images/workout_app.jpeg',
-  technologies: ['reactJS', 'expressJS', 'Sass']
-},
-{
-  _creator: null,
-  name: 'Arcade Games',
-  description: 'A recreation of classic arcade games',
-  image: '/images/arcade_game.jpeg',
-  technologies: ['reactJS', 'Ruby on Rails', 'Sass']
-},
+const projectsOne = [
 {
   _creator: null,
   name: 'Collab App',
@@ -29,4 +15,22 @@ const projects = [
 },
 ]
 
-export default projects;
+const projectsTwo = [
+  {
+    _creator: null,
+    name: 'Workout App',
+    description: 'An app to track and record your workouts',
+    image: '/images/workout_app.jpeg',
+    technologies: ['reactJS', 'expressJS', 'Sass']
+  },
+  {
+    _creator: null,
+    name: 'Arcade Games',
+    description: 'A recreation of classic arcade games',
+    image: '/images/arcade_game.jpeg',
+    technologies: ['reactJS', 'Ruby on Rails', 'Sass']
+  }
+]
+  
+
+export { projectsOne, projectsTwo };

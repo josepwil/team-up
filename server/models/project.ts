@@ -1,7 +1,15 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const projectSchema = new Schema({
+export interface IProject extends mongoose.Document {
+  _creator: string;
+  name: string;
+  description: string;
+  image: string;
+  technologies: string[];
+}
+
+export const projectSchema = new Schema({
   _creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -21,6 +29,6 @@ const projectSchema = new Schema({
   technologies: [String]
 })
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.model<IProject>('Project', projectSchema);
 
 export default Project;

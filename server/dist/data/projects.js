@@ -1,20 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const projects = [
-    {
-        _creator: null,
-        name: 'Workout App',
-        description: 'An app to track and record your workouts',
-        image: '/images/workout_app.jpeg',
-        technologies: ['reactJS', 'expressJS', 'Sass']
-    },
-    {
-        _creator: null,
-        name: 'Arcade Games',
-        description: 'A recreation of classic arcade games',
-        image: '/images/arcade_game.jpeg',
-        technologies: ['reactJS', 'Ruby on Rails', 'Sass']
-    },
+exports.projectsTwo = exports.projectsOne = void 0;
+const projectsOne = [
     {
         _creator: null,
         name: 'Collab App',
@@ -30,5 +17,22 @@ const projects = [
         technologies: ['vueJS', 'PHP']
     },
 ];
-exports.default = projects;
+exports.projectsOne = projectsOne;
+const projectsTwo = [
+    {
+        _creator: null,
+        name: 'Workout App',
+        description: 'An app to track and record your workouts',
+        image: '/images/workout_app.jpeg',
+        technologies: ['reactJS', 'expressJS', 'Sass']
+    },
+    {
+        _creator: null,
+        name: 'Arcade Games',
+        description: 'A recreation of classic arcade games',
+        image: '/images/arcade_game.jpeg',
+        technologies: ['reactJS', 'Ruby on Rails', 'Sass']
+    }
+];
+exports.projectsTwo = projectsTwo;
 //# sourceMappingURL=projects.js.map

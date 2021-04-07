@@ -3,9 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.userSchema = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const { Schema } = mongoose_1.default;
-const userSchema = new Schema({
+exports.userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -23,6 +24,6 @@ const userSchema = new Schema({
             ref: 'Review'
         }]
 });
-const User = mongoose_1.default.model('User', userSchema);
+const User = mongoose_1.default.model('User', exports.userSchema);
 exports.default = User;
 //# sourceMappingURL=user.js.map
