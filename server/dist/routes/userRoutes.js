@@ -12,4 +12,5 @@ router.get('/:id', userController_1.getUser);
 router.post('/', userController_1.createUser);
 // edit an existing user
 router.put('/:id', userController_1.updateUser);
+exports.default = router;
 //# sourceMappingURL=userRoutes.js.map

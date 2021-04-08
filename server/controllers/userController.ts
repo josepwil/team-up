@@ -22,8 +22,7 @@ const createUser = (req: any, res: any) => {
     .catch(err => {
       console.log('ERROR', err.message)
     })
-  
-}
+  }
 
 
 const getUser = () => {

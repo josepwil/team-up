@@ -11,3 +11,5 @@ router.post('/', createUser)
 
 // edit an existing user
 router.put('/:id', updateUser)
+
+export default router;
