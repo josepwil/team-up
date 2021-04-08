@@ -1,7 +1,17 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const reviewSchema = new Schema({
+export interface IReview extends mongoose.Document {
+  _user: string;
+  review: string;
+  rating: number;
+}
+
+export const reviewSchema = new Schema({
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   review: {
     type: String,
   },
@@ -11,5 +21,5 @@ const reviewSchema = new Schema({
   }
 })
 
-const Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.model<IReview>('Review', reviewSchema);
 export default Review;
