@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import User from '../models/user';
 
 
-// to do - replace any with type
 const createUser = (req: Request, res: Response) => {
   const { name, email, password } = req.body;
 
