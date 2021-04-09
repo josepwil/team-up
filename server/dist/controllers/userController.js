@@ -66,12 +66,12 @@ const updateUser = (req, res) => {
         user.reviews = req.body.reviews ? [...user.reviews, ...req.body.reviews] : user.reviews;
         // nesting .then because if I try to return user.save() I get a type error 
         user.save()
-            .then(newUser => {
-            return res.status(200).json(newUser);
+            .then(updatedUser => {
+            return res.status(200).json(updatedUser);
         });
     })
         .catch(err => {
-        console.log('ERROR: ', err.message);
+        console.log('ERROR: ', err);
     });
 };
 exports.updateUser = updateUser;

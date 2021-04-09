@@ -14,5 +14,7 @@ router.get('/:id', projectController_1.getProjectById);
 router.post('/', projectController_1.createProject);
 // edit an existing project
 router.put('/:id', projectController_1.updateProject);
+// delete an existing project
+router.delete('/:id', projectController_1.deleteProject);
 exports.default = router;
 //# sourceMappingURL=projectRoutes.js.map
