@@ -62,7 +62,6 @@ const updateUser = (req: Request, res: Response) => {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
       user.password = req.body.password || user.password;
-      user.reviews = req.body.reviews ? [...user.reviews, ...req.body.reviews] : user.reviews;
       // nesting .then because if I try to return user.save() I get a type error 
       user.save()
         .then(updatedUser => {

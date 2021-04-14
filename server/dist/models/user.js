@@ -18,11 +18,7 @@ exports.userSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
-    reviews: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }]
+    }
 });
 const User = mongoose_1.default.model('User', exports.userSchema);
 exports.default = User;

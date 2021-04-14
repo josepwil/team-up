@@ -5,7 +5,6 @@ export interface IUser extends mongoose.Document {
   name: string;
   email: string;
   password: string;
-  reviews: any[];
 }
 
 export const userSchema = new Schema({
@@ -20,11 +19,7 @@ export const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  },
-  reviews: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Review'
-  }]
+  }
 });
 
 const User = mongoose.model<IUser>('User', userSchema);
