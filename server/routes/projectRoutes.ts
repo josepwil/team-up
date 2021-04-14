@@ -6,7 +6,7 @@ const router = express.Router();
 // get all projects
 router.get('/', getAllProjects);
 
-// get specific prodect
+// get specific project
 router.get('/:id', getProjectById);
 
 // create a new project
