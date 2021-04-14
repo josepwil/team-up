@@ -15,8 +15,8 @@ router.post('/', createReview);
 // edit an existing review
 router.put('/:id', updateReview);
 
-// // delete a review
-// router.delete('/:id', deleteReview);
+// delete a review
+router.delete('/:id', deleteReview);
 
 
 

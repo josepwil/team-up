@@ -62,4 +62,18 @@ const updateReview = (req: Request, res: Response) => {
     })
 }
 
-export {getAllReviews, getReviewsForUser, createReview, updateReview}
+const deleteReview = (req: Request, res: Response) => {
+  const reviewId = req.params.id;
+  Review.findById(reviewId)
+  .then(review => {
+    return review.remove()
+  })
+  .then(response => {
+    res.status(200).json({message: 'deleted review'});
+  })
+  .catch(err => {
+    console.log('ERROR: ', err)
+  })
+}
+
+export {getAllReviews, getReviewsForUser, createReview, updateReview, deleteReview}

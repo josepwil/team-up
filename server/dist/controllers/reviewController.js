@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateReview = exports.createReview = exports.getReviewsForUser = exports.getAllReviews = void 0;
+exports.deleteReview = exports.updateReview = exports.createReview = exports.getReviewsForUser = exports.getAllReviews = void 0;
 const review_1 = __importDefault(require("../models/review"));
 const getAllReviews = (req, res) => {
     review_1.default.find({})
@@ -64,4 +64,18 @@ const updateReview = (req, res) => {
     });
 };
 exports.updateReview = updateReview;
+const deleteReview = (req, res) => {
+    const reviewId = req.params.id;
+    review_1.default.findById(reviewId)
+        .then(review => {
+        return review.remove();
+    })
+        .then(response => {
+        res.status(200).json({ message: 'deleted review' });
+    })
+        .catch(err => {
+        console.log('ERROR: ', err);
+    });
+};
+exports.deleteReview = deleteReview;
 //# sourceMappingURL=reviewController.js.map
