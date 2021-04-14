@@ -8,7 +8,7 @@ const projectController_1 = require("../controllers/projectController");
 const router = express_1.default.Router();
 // get all projects
 router.get('/', projectController_1.getAllProjects);
-// get specific prodect
+// get specific project
 router.get('/:id', projectController_1.getProjectById);
 // create a new project
 router.post('/', projectController_1.createProject);
