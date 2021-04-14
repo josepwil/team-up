@@ -10,8 +10,8 @@ const router = express_1.default.Router();
 router.get('/', reviewController_1.getAllReviews);
 // get all reviews for a specific user
 router.get('/:id', reviewController_1.getReviewsForUser);
-// // create a new review
-// router.post('/', createReview);
+// create a new review
+router.post('/', reviewController_1.createReview);
 // // edit an existing review
 // router.put('/:id', updateReview);
 // // delete a review

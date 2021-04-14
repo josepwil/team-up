@@ -28,4 +28,17 @@ const getReviewsForUser = (req: Request, res: Response) => {
     })
 }
 
-export {getAllReviews, getReviewsForUser}
+const createReview = (req: Request, res: Response) => {
+  const { _user, review, rating } = req.body;
+
+  Review.create({_user, review, rating}, (err, review) => {
+    if (err) {
+      console.log('ERROR: ', err)
+      return;
+    }
+    console.log('Review created')
+    return res.status(201).json(review)
+  })
+}
+
+export {getAllReviews, getReviewsForUser, createReview}

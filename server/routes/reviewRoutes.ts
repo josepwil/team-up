@@ -9,8 +9,8 @@ router.get('/', getAllReviews);
 // get all reviews for a specific user
 router.get('/:id', getReviewsForUser);
 
-// // create a new review
-// router.post('/', createReview);
+// create a new review
+router.post('/', createReview);
 
 // // edit an existing review
 // router.put('/:id', updateReview);
