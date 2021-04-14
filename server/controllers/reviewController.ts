@@ -41,4 +41,25 @@ const createReview = (req: Request, res: Response) => {
   })
 }
 
-export {getAllReviews, getReviewsForUser, createReview}
+const updateReview = (req: Request, res: Response) => {
+  const reviewId = req.params.id;
+  
+  Review.findById(reviewId)
+    .then(review => {
+      if (!review) {
+        return res.status(400).json({error: 'No such review'})
+      }
+      review.review = req.body.review || review.review;
+      review.rating = req.body.rating || review.rating;
+      // nesting .then because if I try to return review.save() I get a type error 
+      review.save()
+        .then(updatedReview => {
+          return res.status(200).json(updatedReview)
+        })
+    })
+    .catch(err => {
+      console.log('ERROR: ', err)
+    })
+}
+
+export {getAllReviews, getReviewsForUser, createReview, updateReview}

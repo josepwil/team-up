@@ -12,8 +12,8 @@ router.get('/:id', getReviewsForUser);
 // create a new review
 router.post('/', createReview);
 
-// // edit an existing review
-// router.put('/:id', updateReview);
+// edit an existing review
+router.put('/:id', updateReview);
 
 // // delete a review
 // router.delete('/:id', deleteReview);

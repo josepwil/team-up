@@ -12,8 +12,8 @@ router.get('/', reviewController_1.getAllReviews);
 router.get('/:id', reviewController_1.getReviewsForUser);
 // create a new review
 router.post('/', reviewController_1.createReview);
-// // edit an existing review
-// router.put('/:id', updateReview);
+// edit an existing review
+router.put('/:id', reviewController_1.updateReview);
 // // delete a review
 // router.delete('/:id', deleteReview);
 exports.default = router;
