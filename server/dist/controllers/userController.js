@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = exports.updateUser = exports.getUserById = exports.createUser = void 0;
+exports.loginUser = exports.getAllUsers = exports.updateUser = exports.getUserById = exports.createUser = void 0;
 const user_1 = __importDefault(require("../models/user"));
 const createUser = (req, res) => {
     const { name, email, password } = req.body;
@@ -26,6 +26,26 @@ const createUser = (req, res) => {
     });
 };
 exports.createUser = createUser;
+const loginUser = (req, res) => {
+    const { email, password } = req.body;
+    user_1.default.findOne({ email })
+        .then(user => {
+        if (!user) {
+            return res.status(400).json({ error: 'No such user' });
+        }
+        user.validatePassword(password)
+            .then(isValid => {
+            if (isValid) {
+                return res.status(200).json(user);
+            }
+            return res.status(401).json({ error: 'Incorrect Email or Password' });
+        });
+    })
+        .catch(err => {
+        console.log('ERROR: ', err.message);
+    });
+};
+exports.loginUser = loginUser;
 const getAllUsers = (req, res) => {
     user_1.default.find({})
         .then(users => {

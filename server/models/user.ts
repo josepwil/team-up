@@ -8,7 +8,7 @@ export interface IUser extends mongoose.Document {
   name: string;
   email: string;
   password: string;
-  validatePassword(password: string): boolean;
+  validatePassword(password: string): Promise<boolean>;
 }
 
 

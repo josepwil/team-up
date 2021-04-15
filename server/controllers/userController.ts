@@ -25,6 +25,28 @@ const createUser = (req: Request, res: Response) => {
     })
   }
 
+  const loginUser = (req: Request, res: Response) => {
+    const { email, password } = req.body;
+
+    User.findOne({ email })
+      .then(user => {
+        if(!user) {
+          return res.status(400).json({error: 'No such user'})
+        }
+       
+        user.validatePassword(password) 
+          .then(isValid => {
+            if (isValid) {
+              return res.status(200).json(user)
+            }
+            return res.status(401).json({error: 'Incorrect Email or Password'})
+          })
+      })
+      .catch(err => {
+        console.log('ERROR: ', err.message)
+      })
+  }
+
 const getAllUsers = (req: Request, res: Response) => {
   User.find({})
     .then(users => {
@@ -74,4 +96,4 @@ const updateUser = (req: Request, res: Response) => {
     
 }
 
-export {createUser, getUserById, updateUser, getAllUsers};
+export {createUser, getUserById, updateUser, getAllUsers, loginUser};
