@@ -4,14 +4,12 @@ const users = [
     {
         name: 'Brian',
         email: 'brian@test.com',
-        password: 'test',
-        reviews: []
+        password: 'test'
     },
     {
         name: 'Alice',
         email: 'alice@test.com',
-        password: 'test',
-        reviews: []
+        password: 'test'
     },
 ];
 exports.default = users;
