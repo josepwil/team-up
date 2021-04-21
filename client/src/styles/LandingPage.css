@@ -3,18 +3,47 @@
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
+  background-image: url(../images/cool-background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .landingPageNav {
   align-self: flex-end;
+  margin: 1rem;
+  color: white;
 }
 
 .aboutContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin: 2rem;
+  width: 100vw;
 }
 
 .landingPageImage {
   width: 40rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;}
+
+.aboutContent {
+  width: 40vw;
 }
+
+.getStartedButton {
+  background-color: #323377;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.getStartedButton:hover {
+  background-color: #23226b;
+}
+

@@ -9,7 +9,7 @@ const LandingPage = () => {
       <a>Sign in</a>/<a>up</a>
     </div>
     <div className="aboutContainer">
-      <div>
+      <div className="aboutContent">
         <h1>Team Up</h1>
         Team up a place where you can Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi voluptatem adipisci ducimus voluptatibus voluptatum omnis impedit! Facilis dolores, dicta quam eveniet minus ipsam tenetur consequuntur sed provident accusamus velit tempora.
       </div>
@@ -17,13 +17,13 @@ const LandingPage = () => {
     </div>
     <div className="aboutContainer">
       <img src={howItWorks} alt="howItWorks" className="landingPageImage" />
-      <div>
+      <div className="aboutContent">
         <h3>How it works</h3>
         how it works Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, molestiae maiores! Blanditiis quis sapiente neque, consequuntur debitis eos magnam, dolor labore nostrum commodi deleniti esse beatae suscipit expedita vitae cumque.
       </div>
     </div>
     <div>
-      <button>Get Started</button>
+      <button className="getStartedButton">Get Started</button>
     </div>
   </div>
   )
