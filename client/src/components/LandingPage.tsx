@@ -1,12 +1,17 @@
+import { Link, useHistory } from 'react-router-dom';
+// CSS
 import '../styles/LandingPage.css'
+// images
 import whiteboardImage from '../images/teamup_whiteboard.jpeg'
 import howItWorks from '../images/how_it_works.jpeg'
 
 const LandingPage = () => {
+  const history = useHistory();
+
   return(
   <div className="landingPageContainer">
     <div className="landingPageNav">
-      <a>Sign in</a>/<a>up</a>
+      <Link to="/login">Sign in</Link>/<Link to="/register">up</Link>
     </div>
     <div className="aboutContainer">
       <div className="aboutContent">
@@ -23,7 +28,7 @@ const LandingPage = () => {
       </div>
     </div>
     <div>
-      <button className="getStartedButton">Get Started</button>
+      <button className="getStartedButton" onClick={() => history.push("/login")}>Get Started</button>
     </div>
   </div>
   )
