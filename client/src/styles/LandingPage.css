@@ -1,0 +1,20 @@
+.landingPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.landingPageNav {
+  align-self: flex-end;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingPageImage {
+  width: 40rem;
+}
