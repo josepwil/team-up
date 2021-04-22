@@ -1,5 +1,7 @@
 import '../styles/Layout.css'
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, 
+  Switch, Route, Link } from 'react-router-dom';
+import Home from './Home'
 
 const Layout = ({ setUser }:any) => {
   return(
@@ -12,6 +14,15 @@ const Layout = ({ setUser }:any) => {
         <Link to='/add'>add a project</Link>
         <p onClick={() => setUser(null)}>sign out</p>
       </div>
+    </div>
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   </div>)
 }
