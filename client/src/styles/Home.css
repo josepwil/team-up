@@ -1,6 +1,8 @@
 .homeContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 4rem;
 }
 
@@ -16,4 +18,11 @@
 
 .searchInput::placeholder {
   color: black;
+}
+
+.projectListContainer {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
