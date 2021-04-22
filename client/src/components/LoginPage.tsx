@@ -12,7 +12,7 @@ const LoginPage = ({ setUser }: any) => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
-  const [error, setErorr] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
@@ -23,7 +23,7 @@ const LoginPage = ({ setUser }: any) => {
     })
       .then(res => {
         if(res.status === 200) {
-          setErorr('')
+          setError('')
           setUser({
             email: res.data.email,
             id: res.data._id,
@@ -33,7 +33,7 @@ const LoginPage = ({ setUser }: any) => {
         } 
       })
       .catch((err) => {
-        setErorr(err.response.data.error)
+        setError(err.response.data.error)
       })
     
   }

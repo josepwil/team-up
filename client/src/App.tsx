@@ -21,7 +21,7 @@ function App() {
               <LoginPage setUser={setUser}/>
             </Route>
             <Route path="/register">
-              <RegisterPage />
+              <RegisterPage setUser={setUser}/>
             </Route>
             <Route path="/">
               {user ? (<h1>loggedin</h1>) : (<LandingPage />)}

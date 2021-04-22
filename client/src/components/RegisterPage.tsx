@@ -2,10 +2,13 @@ import register from '../images/register.jpeg'
 import '../styles/LoginPage.css'
 
 import { useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 import CloseButton from './CloseButton'
 
-const RegisterPage = () => {
+const RegisterPage = ({ setUser }: any) => {
+  const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +20,25 @@ const RegisterPage = () => {
     if (password !== confirmPassword) {
       return setError('passwords do not match');
     }
+    axios.post('/api/users', {
+      name,
+      email, 
+      password
+    })
+      .then(res => {
+        if(res.status === 201) {
+          setError('')
+          setUser({
+            email: res.data.email,
+            id: res.data._id,
+            name: res.data.name
+          })
+          history.push('/')
+        } 
+      })
+      .catch((err) => {
+        setError(err.response.data.error)
+      })
 
 
   }
