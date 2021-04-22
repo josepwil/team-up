@@ -1,9 +1,12 @@
 import signIn from '../images/sign_in.jpeg'
 import '../styles/LoginPage.css'
 
+import CloseButton from './CloseButton'
+
 const LoginPage = () => {
   return(
     <div className="loginPageContainer">
+      <CloseButton />
       <div className="loginFormContainer">
         <h3>Sign in</h3>
         <input type="text" placeholder="email"/>

@@ -1,9 +1,12 @@
 import register from '../images/register.jpeg'
 import '../styles/LoginPage.css'
 
+import CloseButton from './CloseButton'
+
 const RegisterPage = () => {
   return(
     <div className="loginPageContainer">
+      <CloseButton />
       <div className="loginFormContainer">
         <h3>Register</h3>
         <input type="text" placeholder="email"/>
