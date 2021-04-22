@@ -25,7 +25,7 @@ function App() {
               <RegisterPage setUser={setUser}/>
             </Route>
             <Route path="/">
-              {user ? <Layout /> : <LandingPage />}
+              {user ? <Layout setUser={setUser}/> : <LandingPage />}
             </Route>
           </Switch>
         </div>
