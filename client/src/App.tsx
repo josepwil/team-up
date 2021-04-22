@@ -5,6 +5,7 @@ import './App.css';
 import LandingPage from './components/LandingPage' 
 import LoginPage from './components/LoginPage'
 import RegisterPage from './components/RegisterPage';
+import Layout from './components/Layout';
 import { UserContext } from'./UserContext';
 import { useState, useEffect } from 'react';
 
@@ -24,7 +25,7 @@ function App() {
               <RegisterPage setUser={setUser}/>
             </Route>
             <Route path="/">
-              {user ? (<h1>loggedin</h1>) : (<LandingPage />)}
+              {user ? <Layout /> : <LandingPage />}
             </Route>
           </Switch>
         </div>
