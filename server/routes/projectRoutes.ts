@@ -1,5 +1,5 @@
 import express from 'express';
-import { createProject, getProjectById, updateProject, getAllProjects, deleteProject} from '../controllers/projectController'
+import { createProject, getProjectById, updateProject, getAllProjects, deleteProject, searchForProject} from '../controllers/projectController'
 
 const router = express.Router();
 
@@ -8,6 +8,9 @@ router.get('/', getAllProjects);
 
 // get specific project
 router.get('/:id', getProjectById);
+
+// find a project using search term
+router.get('/search/:searchTerm?', searchForProject);
 
 // create a new project
 router.post('/', createProject);

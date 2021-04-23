@@ -52,6 +52,34 @@ const createProject = (req: Request, res: Response) => {
     })
 }
 
+const searchForProject = (req: Request, res: Response) => {
+  if(!req.params) {
+    Project.find({})
+    .then(projects => {
+      if (!projects) {
+        return res.status(400).json({error: 'There are no projects'});
+      }
+      return res.status(200).json(projects);
+    })
+    .catch(err => {
+      console.log('ERROR: ', err);
+    })
+  } else {
+    const searchTerm = req.params.searchTerm
+    Project.find({ technologies: `${searchTerm}`})
+      .then(projects => {
+        if (projects) {
+          return res.status(200).json(projects)
+        }
+        return res.status(400).json({error: 'No projects found'})
+      })
+      .catch(err => {
+        console.log('error: ', err)
+      })
+  }
+
+}
+
 const updateProject = (req: Request, res: Response) => {
   const projectId = req.params.id;
   Project.findById(projectId)
@@ -89,4 +117,4 @@ const deleteProject = (req: Request, res: Response) => {
 }
 
 
-export {getAllProjects, getProjectById, createProject, updateProject, deleteProject};
+export {getAllProjects, getProjectById, createProject, updateProject, deleteProject, searchForProject};

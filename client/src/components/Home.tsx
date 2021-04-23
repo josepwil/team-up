@@ -9,10 +9,19 @@ const Home = () => {
   const [projects, setProjects] = useState([]);
 
 const updateProject = (inputTerm: string) => {
-  console.log('updating ', inputTerm);
+  axios.get(`/api/projects/search/${inputTerm}`)
+    .then(res => {
+      console.log('data ', res.data)
+      setProjects(res.data)
+    })
+    .catch(err => {
+      console.log('ERROR: ', err)
+    })
 }
 
-const updateProjectDebounced = useRef(debounce(updateProject, 150))
+console.log('rerendering')
+
+const updateProjectDebounced = useRef(debounce(updateProject, 500))
 
 const handleChange = (e: any) => {
   setSearchTerm(e.target.value)

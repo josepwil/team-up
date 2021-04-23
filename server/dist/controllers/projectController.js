@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProject = exports.updateProject = exports.createProject = exports.getProjectById = exports.getAllProjects = void 0;
+exports.searchForProject = exports.deleteProject = exports.updateProject = exports.createProject = exports.getProjectById = exports.getAllProjects = void 0;
 const project_1 = __importDefault(require("../models/project"));
 const getAllProjects = (req, res) => {
     project_1.default.find({})
@@ -53,6 +53,34 @@ const createProject = (req, res) => {
     });
 };
 exports.createProject = createProject;
+const searchForProject = (req, res) => {
+    if (!req.params) {
+        project_1.default.find({})
+            .then(projects => {
+            if (!projects) {
+                return res.status(400).json({ error: 'There are no projects' });
+            }
+            return res.status(200).json(projects);
+        })
+            .catch(err => {
+            console.log('ERROR: ', err);
+        });
+    }
+    else {
+        const searchTerm = req.params.searchTerm;
+        project_1.default.find({ technologies: `${searchTerm}` })
+            .then(projects => {
+            if (projects) {
+                return res.status(200).json(projects);
+            }
+            return res.status(400).json({ error: 'No projects found' });
+        })
+            .catch(err => {
+            console.log('error: ', err);
+        });
+    }
+};
+exports.searchForProject = searchForProject;
 const updateProject = (req, res) => {
     const projectId = req.params.id;
     project_1.default.findById(projectId)

@@ -10,6 +10,8 @@ const router = express_1.default.Router();
 router.get('/', projectController_1.getAllProjects);
 // get specific project
 router.get('/:id', projectController_1.getProjectById);
+// find a project using search term
+router.get('/search/:searchTerm?', projectController_1.searchForProject);
 // create a new project
 router.post('/', projectController_1.createProject);
 // edit an existing project
