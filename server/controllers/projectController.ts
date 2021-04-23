@@ -53,18 +53,6 @@ const createProject = (req: Request, res: Response) => {
 }
 
 const searchForProject = (req: Request, res: Response) => {
-  if(!req.params) {
-    Project.find({})
-    .then(projects => {
-      if (!projects) {
-        return res.status(400).json({error: 'There are no projects'});
-      }
-      return res.status(200).json(projects);
-    })
-    .catch(err => {
-      console.log('ERROR: ', err);
-    })
-  } else {
     const searchTerm = req.params.searchTerm
     Project.find({ technologies: `${searchTerm}`})
       .then(projects => {
@@ -76,8 +64,6 @@ const searchForProject = (req: Request, res: Response) => {
       .catch(err => {
         console.log('error: ', err)
       })
-  }
-
 }
 
 const updateProject = (req: Request, res: Response) => {

@@ -9,23 +9,31 @@ const Home = () => {
   const [projects, setProjects] = useState([]);
 
 const updateProject = (inputTerm: string) => {
-  axios.get(`/api/projects/search/${inputTerm}`)
+  console.log(typeof(inputTerm))
+  if(inputTerm) {
+    axios.get(`/api/projects/search/${inputTerm}`)
+      .then(res => {
+        setProjects(res.data)
+      })
+      .catch(err => {
+        console.log('ERROR: ', err)
+      })
+  } else {
+    axios.get('/api/projects')
     .then(res => {
-      console.log('data ', res.data)
       setProjects(res.data)
     })
     .catch(err => {
-      console.log('ERROR: ', err)
+      console.log('error: ', err)
     })
+  }
 }
-
-console.log('rerendering')
 
 const updateProjectDebounced = useRef(debounce(updateProject, 500))
 
 const handleChange = (e: any) => {
   setSearchTerm(e.target.value)
-  updateProjectDebounced.current(e.target.value);
+  updateProjectDebounced.current(e.target.value || null);
 }
 
 useEffect(() => {
