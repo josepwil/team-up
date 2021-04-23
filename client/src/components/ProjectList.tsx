@@ -3,7 +3,7 @@ import ProjectTile from './ProjectTile'
 const ProjectList = ({projects}: any) => {
   return(
     <div className="projectListContainer">
-      {projects.map((project: any) => <ProjectTile project={project}/>)}
+      {projects.length ? projects.map((project: any) => <ProjectTile project={project}/>) : <h3>no projects found :(</h3>}
     </div>
   )
 }
