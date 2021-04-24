@@ -1,5 +1,7 @@
 import express from 'express';
 import { createProject, getProjectById, updateProject, getAllProjects, deleteProject, searchForProject} from '../controllers/projectController'
+import multer from 'multer';
+
 
 const router = express.Router();
 
