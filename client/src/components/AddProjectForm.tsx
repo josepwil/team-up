@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 const AddProjectForm = () => {
@@ -8,8 +9,23 @@ const AddProjectForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    const technologiesArray = technologies.split(',').map(tech => tech.toLowerCase())
-    console.log(technologiesArray);
+    console.log(image);
+
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('technologies', technologies);
+    formData.append('image', image);
+  
+    
+    axios.post('/api/projects', formData)
+    .then(res => {
+      console.log('project created')
+    })
+    .catch(err => {
+      console.log('error: ', err)
+    })
   }
 
   return(

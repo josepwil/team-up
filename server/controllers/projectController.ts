@@ -31,6 +31,8 @@ const getProjectById = (req: Request, res: Response) => {
 
 const createProject = (req: Request, res: Response) => {
   const { _creator, name, description, technologies } = req.body;
+  const technologiesArray = technologies.split(',').map(tech => tech.toLowerCase())
+
 
   Project.findOne({ name })
     .then(project => {
@@ -38,7 +40,7 @@ const createProject = (req: Request, res: Response) => {
         return res.status(400).json({error: 'Project with that name already exists'})
       }
 
-      Project.create({_creator, name, description, image: `/images/${req.file.originalname}`, technologies}, (err, project) => {
+      Project.create({_creator, name, description, image: `/images/${req.file.originalname}`, technologies: technologiesArray}, (err, project) => {
         if (err) {
           console.log('ERROR: ', err)
           return;

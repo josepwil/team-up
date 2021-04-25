@@ -34,12 +34,13 @@ const getProjectById = (req, res) => {
 exports.getProjectById = getProjectById;
 const createProject = (req, res) => {
     const { _creator, name, description, technologies } = req.body;
+    const technologiesArray = technologies.split(',').map(tech => tech.toLowerCase());
     project_1.default.findOne({ name })
         .then(project => {
         if (project) {
             return res.status(400).json({ error: 'Project with that name already exists' });
         }
-        project_1.default.create({ _creator, name, description, image: `/images/${req.file.originalname}`, technologies }, (err, project) => {
+        project_1.default.create({ _creator, name, description, image: `/images/${req.file.originalname}`, technologies: technologiesArray }, (err, project) => {
             if (err) {
                 console.log('ERROR: ', err);
                 return;
