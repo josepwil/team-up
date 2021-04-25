@@ -44,7 +44,7 @@ const createProject = (req: Request, res: Response) => {
           return;
         }
         console.log('Project created')
-        return res.status(201).json(project)
+        return res.status(201).json(project) 
       })
     })
     .catch(err => {

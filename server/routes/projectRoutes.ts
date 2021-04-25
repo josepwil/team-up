@@ -1,6 +1,7 @@
 import express from 'express';
 import { createProject, getProjectById, updateProject, getAllProjects, deleteProject, searchForProject} from '../controllers/projectController'
 import multer from 'multer';
+import path from 'path';
 
 
 const router = express.Router();
@@ -15,7 +16,18 @@ router.get('/:id', getProjectById);
 router.get('/search/:searchTerm?', searchForProject);
 
 // create a new project
-router.post('/', createProject);
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, `${__dirname}/../../../client/public/images`)
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
+
+const upload = multer({ storage })
+
+router.post('/', upload.single('image'), createProject);
 
 // edit an existing project
 router.put('/:id', updateProject);
