@@ -26,6 +26,14 @@
   margin-top: 1rem;
 }
 
+.loginFormContainer textarea {
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+
 .loginFormContainer button {
   background-color: white;
   padding: 0.5rem 1rem;
@@ -44,3 +52,11 @@
 .loginImage {
   height: 80vh;
 }
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+
