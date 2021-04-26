@@ -34,3 +34,9 @@
   margin-right: 4px;
   margin-top: 4px;
 }
+
+@media only screen and (max-width: 768px) {
+  .tileContainer {
+    width: 22rem;
+  }
+}
