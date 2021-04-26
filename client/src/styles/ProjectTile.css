@@ -1,7 +1,8 @@
 .tileContainer {
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 30rem;
+  margin: 1rem;
 }
 
 .tileTitle {
@@ -11,6 +12,7 @@
 
 .tileImage {
   max-height: 250px;
+  min-height: 300px;
 }
 
 .tileDescription {
